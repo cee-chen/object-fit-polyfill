@@ -11,14 +11,14 @@
 
   $.fn.objectFitPolyfill = function(options) {
 
-		// If the browser does support object-fit, we don't need to continue
-		if ('objectFit' in document.documentElement.style !== false) {
-			return;
-		}
+    // If the browser does support object-fit, we don't need to continue
+    if ('objectFit' in document.documentElement.style !== false) {
+      return;
+    }
 
     // Setup options
     var settings = $.extend({
-			"fit": "cover",
+      "fit": "cover",
       "fixContainer": false,
     }, options);
 
@@ -36,7 +36,7 @@
           });
         }
 
-				// Mathematically figure out which side needs covering, and add CSS positioning & centering
+        // Mathematically figure out which side needs covering, and add CSS positioning & centering
         $image.css({
           "position": "absolute",
           "height": $container.outerHeight(),
@@ -44,31 +44,31 @@
         });
 
         if (
-					settings.fit === "cover"   && $image.width() < $container.outerWidth() ||
-					settings.fit === "contain" && $image.width() > $container.outerWidth()
-				) {
-					$image.css({
-						"top": "50%",
-						"left": 0,
-						"height": "auto",
-						"width": $container.outerWidth(),
-						"marginLeft": 0,
-					}).css("marginTop", $image.height() / -2);
+          settings.fit === "cover"   && $image.width() < $container.outerWidth() ||
+          settings.fit === "contain" && $image.width() > $container.outerWidth()
+        ) {
+          $image.css({
+            "top": "50%",
+            "left": 0,
+            "height": "auto",
+            "width": $container.outerWidth(),
+            "marginLeft": 0,
+          }).css("marginTop", $image.height() / -2);
         } else {
           $image.css({
             "top": 0,
             "left": "50%",
             "marginTop": 0,
-					}).css("marginLeft", $image.width() / -2);
+          }).css("marginLeft", $image.width() / -2);
         }
       };
 
       // Init - wait for the image to be done loading first, otherwise dimensions will return 0
-			$image.on("load", function(){
-				coverAndPosition();
-			});
-			// IE will sometimes get cache-happy and not register onload.
-			coverAndPosition();
+      $image.on("load", function(){
+        coverAndPosition();
+      });
+      // IE will sometimes get cache-happy and not register onload.
+      coverAndPosition();
 
       // Recalculate widths & heights on window resize
       $(window).resize(function() {

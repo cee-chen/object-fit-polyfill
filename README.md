@@ -9,7 +9,7 @@ You can check out the [bare-bones demo here](http://constancecchen.github.io/obj
 
 Unlike [Primož Cigler's method](https://medium.com/@primozcigler/neat-trick-for-css-object-fit-fallback-on-edge-and-other-browsers-afbc53bbb2c3#.17fpxgk0w) (which is an excellent alternative if you'd rather not use this one), this polyfill does not set a background image on the parent container, but instead resizes and repositions the image (using inline CSS for height, width, absolute positioning, and negative margins).
 
-If you're asking: why even bother using `<img>` tags versus `background-image`, here are two reasonable-ish reasons:
+If you're asking: why even bother using `<img>` tags versus `background-image`? Here are two reasonable-ish reasons:
 
 1. `<img>` tags have better SEO/crawling visibility
 2. In cases where images are dynamically returned and can't simply be added to your stylesheets (e.g., CMS's), you're forced to inline your background-image. This solves that somewhat-ugly-looking inline CSS.
@@ -81,7 +81,7 @@ A boolean that defaults to false. Use this if your normal CSS doesn't have `posi
 
 ---
 
-Please note that I currently don't have support for `object-position` - the positioning currently defaults to the center. If this is a feature a lot of people want, I'd be happy to go back and add it in (or merge a pull request, if someone else wants to do it!)
+Please note that I currently don't have support for `object-position` - the positioning simply defaults to the center. If this is a feature a lot of people want, I'd be happy to go back and add it in (or merge a pull request, if someone else wants to do it!)
 
 ## But why jQuery?
 
