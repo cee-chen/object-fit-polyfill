@@ -11,7 +11,7 @@
 
   // If the browser does support object-fit, we don't need to continue
   if ('objectFit' in document.documentElement.style !== false) {
-  //  return;
+    return;
   }
 
   $.fn.objectFitPolyfill = function(options) {
@@ -53,15 +53,13 @@
 						"height": "auto",
 						"width": $container.outerWidth(),
 						"marginLeft": 0,
-					  "marginTop": $image.height() / -2
-					});
+					}).css("marginTop", $image.height() / -2);
         } else {
           $image.css({
             "top": 0,
             "left": "50%",
             "marginTop": 0,
-						"marginLeft": $image.width() / -2
-					});
+					}).css("marginLeft", $image.width() / -2);
         }
       };
 
@@ -69,6 +67,8 @@
 			$image.on("load", function(){
 				coverAndPosition();
 			});
+			// IE will sometimes get cache-happy and not register onload.
+			coverAndPosition();
 
       // Recalculate widths & heights on window resize
       $(window).resize(function() {

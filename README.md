@@ -50,7 +50,7 @@ Minimum CSS required:
 	width: 400px; // Or whatever you want it to be
 	height: 400px; // Or whatever
 }
-.bg-img {
+.your-class {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
