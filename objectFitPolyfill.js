@@ -9,12 +9,12 @@
 
 (function($, window, undefined) {
 
-  // If the browser does support object-fit, we don't need to continue
-  if ('objectFit' in document.documentElement.style !== false) {
-    return;
-  }
-
   $.fn.objectFitPolyfill = function(options) {
+
+		// If the browser does support object-fit, we don't need to continue
+		if ('objectFit' in document.documentElement.style !== false) {
+			return;
+		}
 
     // Setup options
     var settings = $.extend({
