@@ -22,7 +22,7 @@ Dependencies:
 
 ```
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="objectFitPolyfill.js"></script>
+<script src="objectFitPolyfill.min.js"></script>
 ```
 
 Initialization:
@@ -39,7 +39,7 @@ Minimum HTML required:
 
 ```
 <div class="container">
-  <img class="your-class" src="https://unsplash.it/800/600/" alt="">
+	<img class="your-class" src="https://unsplash.it/800/600/" alt="">
 </div>
 ```
 
