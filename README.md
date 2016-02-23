@@ -3,7 +3,7 @@ A jQuery polyfill for browsers that don't support the `object-fit` CSS property.
 
 ## Demo
 
-You can **[view and play around with the demo here](http://)**. Note that the plugin simply won't do anything if you're on a browser that already supports object-fit, so you'll need to test it on IE.
+You can check out the [bare-bones demo here](http://constancecchen.github.io/object-fit-polyfill). Note that the plugin simply won't do anything if you're on a browser that already supports object-fit, so you'll need to test it on IE.
 
 ## How does it work?
 

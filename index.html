@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Bare-bones Object-fit Polyfill Demo</title>
+
+		<!-- CSS -->
+		<style>
+			html, body {
+				margin: 0;
+				height: 100%;
+				font-family: Helvetica, Arial, sans-serif;
+				line-height: 1.5;
+				background-color: #111;
+			}
+			h1, p {
+				margin: 0;
+			}
+			a {
+				color: inherit;
+			}
+
+			.container-1 {
+				position: relative;
+				overflow: hidden;
+				width: 100%;
+				height: 100%;
+			}
+			.img-cover {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+			.heading {
+				position: relative;
+				top: 50%;
+				padding: 1em;
+				text-align: center;
+				color: #fff;
+				background-color: rgba(0,0,0, 0.8);
+				-webkit-transform: translateY(-50%);
+				-ms-transform: translateY(-50%);
+				transform: translateY(-50%);
+			}
+
+			.container-2 {
+				margin: 2em auto;
+				float: left;
+				width: 50%;
+				height: 25em;
+			}
+			.img-contain {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="container-1">
+			<img class="img-cover" src="https://unsplash.it/1920/1080/?random" alt="">
+			<div class="heading">
+				<h1>An Object-fit Polyfill</h1>
+				Resize the window in IE to test! Or <a href="https://github.com/constancecchen/object-fit-polyfill">view the GitHub repo</a>.
+		</header>
+
+		<div class="container-2">
+			<img class="img-contain" src="https://unsplash.it/1000/800/" alt="">
+		</div>
+		<div class="container-2">
+			<img class="img-contain" src="https://unsplash.it/1000/801/" alt="">
+		</div>
+
+		<!-- Javascript -->
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="objectFitPolyfill.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$(".img-cover").objectFitPolyfill();
+				$(".img-contain").objectFitPolyfill({
+					fit: "contain",
+					fixContainer: true,
+				});
+			});
+		</script>
+	</body>
+</html>
