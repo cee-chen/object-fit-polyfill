@@ -19,6 +19,8 @@ You can check out the [bare-bones demo here](http://constancecchen.github.io/obj
 
 Unlike [object-fit-images](https://github.com/bfred-it/object-fit-images) or [Primož Cigler's method](https://medium.com/@primozcigler/neat-trick-for-css-object-fit-fallback-on-edge-and-other-browsers-afbc53bbb2c3#.17fpxgk0w) (both excellent alternatives if you'd rather not use this one), this polyfill does not set a background image on the parent container, but instead resizes and repositions the image (using inline CSS for height, width, absolute positioning, and negative margins).
 
+The polyfilled item will get the class `object-fit-polyfill` if styling-issues are occuring.
+
 If you're wondering: why bother using `<img>` tags versus `background-image`? Here's a couple reasons:
 
 1. `<img>` tags have better SEO/crawling visibility.

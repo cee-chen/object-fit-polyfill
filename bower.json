@@ -1,0 +1,24 @@
+{
+  "name": "object-fit-polyfill.js",
+  "homepage": "https://github.com/constancecchen/object-fit-polyfill",
+  "authors": [
+    "Constance <constancechen>",
+    "Dominik Biedebach <db2k>"
+  ],
+  "description": "Easy to use object-fit polyfill with a wide range of browsersupport.",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "polyfill",
+    "object-fit",
+    "css"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
