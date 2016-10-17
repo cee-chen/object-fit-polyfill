@@ -56,7 +56,7 @@
       $container.style.height = "100%";
     }
 
-    $container.className = $container.className + ' object-fit-polyfill'
+    $container.className = $container.className + ' object-fit-polyfill';
   };
 
   /**
