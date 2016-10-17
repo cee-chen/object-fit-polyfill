@@ -1,0 +1,29 @@
+{
+  "name": "object-fit-polyfill",
+  "version": "1.0.0",
+  "description": "A Javascript polyfill for browsers that don't support the object-fit CSS property",
+  "main": "dist/objectFitPolyfill.min.js",
+  "keywords": [
+    "object-fit",
+    "css",
+    "polyfill"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/constancecchen/object-fit-polyfill.git"
+  },
+  "homepage": "https://github.com/constancecchen/object-fit-polyfill#readme",
+  "author": "Constance Chen <github.com/constancecchen>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/constancecchen/object-fit-polyfill/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0"
+  }
+}
