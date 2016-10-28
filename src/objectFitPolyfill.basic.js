@@ -105,18 +105,18 @@
     if (
       $media.clientWidth > $container.clientWidth
     ) {
-      $media.style.setProperty( 'top',       '0',   'important' );
-      $media.style.setProperty( 'marginTop', '0',   'important' );
-      $media.style.setProperty( 'left',      '50%', 'important' );
-      $media.style.setProperty( 'marginLeft', ($media.clientWidth / -2) + 'px', 'important' );
+      $media.style.setProperty( 'top',        '0',   'important' );
+      $media.style.setProperty( 'margin-top', '0',   'important' );
+      $media.style.setProperty( 'left',       '50%', 'important' );
+      $media.style.setProperty( 'margin-left', ($media.clientWidth / -2) + 'px', 'important' );
     }
     else {
-      $media.style.setProperty( 'width',      '100%', 'important' );
-      $media.style.setProperty( 'height',     'auto', 'important' );
-      $media.style.setProperty( 'left',       '0',    'important' );
-      $media.style.setProperty( 'marginLeft', '0',    'important' );
-      $media.style.setProperty( 'top',        '50%',  'important' );
-      $media.style.setProperty( 'marginTop',  ($media.clientHeight / -2) + 'px', 'important' );
+      $media.style.setProperty( 'width',       '100%', 'important' );
+      $media.style.setProperty( 'height',      'auto', 'important' );
+      $media.style.setProperty( 'left',        '0',    'important' );
+      $media.style.setProperty( 'margin-left', '0',    'important' );
+      $media.style.setProperty( 'top',         '50%',  'important' );
+      $media.style.setProperty( 'margin-top',  ($media.clientHeight / -2) + 'px', 'important' );
     }
   };
 
