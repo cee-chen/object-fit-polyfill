@@ -81,6 +81,18 @@ If you're only interested in using the basic polyfill (which assumes `object-fit
 <script src="dist/objectFitPolyfill.basic.min.js"></script>
 ```
 
+## Installation via package managers
+
+Alternatively, if you prefer not to manually add Javascript files to your sites, you can use bower and npm like so:
+
+```
+bower install objectFitPolyfill
+```
+
+```
+npm install objectFitPolyfill
+```
+
 ## Requests?
 
 If you'd like to make feature requests such as IE 8- or adding object-position support for Safari, feel free to open an issue or pull request! It's doable and on my radar, but I probably won't get to it without some prodding.
