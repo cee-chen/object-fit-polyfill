@@ -56,7 +56,7 @@
       $container.style.height = "100%";
     }
 
-    $container.className = $container.className + ' object-fit-polyfill';
+    $container.className = $container.className + " object-fit-polyfill";
   };
 
   /**
@@ -130,7 +130,7 @@
     for (var i = 0; i < media.length; i ++) {
       var mediaType = media[i].nodeName.toLowerCase();
 
-      if (mediaType === 'img') {
+      if (mediaType === "img") {
         if (media[i].complete) {
           objectFit(media[i]);
         }
