@@ -10,9 +10,23 @@
  * https://github.com/constancecchen/object-fit-polyfill
  *--------------------------------------*/
 
-"use strict";
-
-function objectFitPolyfill() {
+(function (root, factory) {
+  if (typeof define === "function" && define.amd) {
+    // AMD. Register as an anonymous module.
+    define([""], function () {
+      return (root.objectFitPolyfill = factory());
+    });
+  } else if (typeof module === "object" && module.exports) {
+    // Node. Does not work with strict CommonJS, but
+    // only CommonJS-like environments that support module.exports,
+    // like Node.
+    module.exports = factory();
+  } else {
+    // Browser globals
+    root.objectFitPolyfill = factory();
+  }
+}(this, function () {
+  "use strict";
 
   // If the browser does support object-fit, we don't need to continue
   if ("objectFit" in document.documentElement.style !== false) {
@@ -143,12 +157,15 @@ function objectFitPolyfill() {
     }
   };
 
-  document.addEventListener("DOMContentLoaded", function() {
-    objectFitPolyfill();
-  });
+  return objectFitPolyfill;
 
-  window.addEventListener("resize", function() {
-    objectFitPolyfill();
-  });
+}));
 
-}
+document.addEventListener("DOMContentLoaded", function() {
+  objectFitPolyfill();
+});
+
+window.addEventListener("resize", function() {
+  objectFitPolyfill();
+});
+
