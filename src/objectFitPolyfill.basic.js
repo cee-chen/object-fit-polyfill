@@ -10,19 +10,9 @@
  * https://github.com/constancecchen/object-fit-polyfill
  *--------------------------------------*/
 
-(function (root, factory) {
-  if (typeof define === "function" && define.amd) {
-    // AMD - registered as an anonymous module
-    define(factory);
-  } else if (typeof exports === "object") {
-    // CommonJS
-    module.exports = factory();
-  } else {
-    // Browser global
-    root.objectFitPolyfill = factory();
-  }
-})(this, function () {
-  "use strict";
+"use strict";
+
+function objectFitPolyfill() {
 
   // If the browser does support object-fit, we don't need to continue
   if ("objectFit" in document.documentElement.style !== false) {
@@ -161,4 +151,4 @@
     objectFitPolyfill();
   });
 
-});
+}
