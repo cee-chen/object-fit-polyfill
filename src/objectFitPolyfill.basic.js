@@ -161,11 +161,11 @@
 
 }));
 
-document.addEventListener("DOMContentLoaded", function() {
-  objectFitPolyfill();
-});
-
-window.addEventListener("resize", function() {
-  objectFitPolyfill();
-});
-
+if (typeof objectFitPolyfill === "function") {
+  document.addEventListener("DOMContentLoaded", function() {
+    objectFitPolyfill();
+  });
+  window.addEventListener("resize", function() {
+    objectFitPolyfill();
+  });
+}
