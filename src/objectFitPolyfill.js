@@ -27,7 +27,7 @@
 
   // If the browser does support object-fit, we don't need to continue
   if ("objectFit" in document.documentElement.style !== false) {
-    return;
+    return function () { return false };
   }
 
   /**
@@ -252,7 +252,7 @@
 
 }));
 
-if (typeof objectFitPolyfill === "function") {
+if (objectFitPolyfill() !== false) {
   document.addEventListener("DOMContentLoaded", function() {
     objectFitPolyfill();
   });

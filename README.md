@@ -3,7 +3,7 @@ A polyfill for browsers that don't support the `object-fit` CSS property. Unsure
 
 ## Features
 
-- Lightweight - 2.6KB (1.8KB with the basic version)
+- Lightweight - 2.6KB (1.7KB with the basic version)
 - Vanilla Javascript - works with or without jQuery
 - Supports IE 9+, iOS 7-, and Android 4.4-
 - Supports `object-position`
