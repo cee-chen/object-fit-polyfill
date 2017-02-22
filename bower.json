@@ -2,7 +2,7 @@
   "name": "objectFitPolyfill",
   "description": "A Javascript polyfill for browsers that don't support the object-fit CSS property.",
   "homepage": "https://github.com/constancecchen/object-fit-polyfill",
-  "main": "dist/objectFitPolyfill.js",
+  "main": "dist/objectFitPolyfill.min.js",
   "authors": [
     "Constance Chen <c>"
   ],
