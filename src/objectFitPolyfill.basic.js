@@ -1,5 +1,5 @@
 /*----------------------------------------
- * objectFitPolyfill 2.0
+ * objectFitPolyfill 2.1
  *
  * Basic, no-frills version -
  * Defaults to object-fit: cover and object-position: 50% 50%
@@ -46,18 +46,18 @@
     var display = styles.getPropertyValue("display");
 
     if (!position || position === "static") {
-      $container.style.position = "relative";
+      $media.style.setProperty( 'position', 'relative', 'important' );
     }
     if (overflow !== "hidden") {
-      $container.style.overflow = "hidden";
+      $media.style.setProperty( 'overflow', 'hidden', 'important' );
     }
     // Guesstimating that people want the parent to act like full width/height wrapper here.
     // Mostly attempts to target <picture> elements, which default to inline.
     if (!display || display === "inline") {
-      $container.style.display = "block";
+      $media.style.setProperty( 'display', 'block', 'important' );
     }
     if ($container.clientHeight === 0) {
-      $container.style.height = "100%";
+      $media.style.setProperty( 'height', '100%', 'important' );
     }
 
     $container.className = $container.className + " object-fit-polyfill";
@@ -83,7 +83,7 @@
       var constraint = styles.getPropertyValue(property);
 
       if (constraint !== constraints[property]) {
-        $media.style[property] = constraints[property];
+        $media.style.setProperty( property, constraints[property], 'important' );
       }
     }
   };
@@ -102,25 +102,25 @@
     checkMediaConstraints($media);
 
     // Mathematically figure out which side needs covering, and add CSS positioning & centering
-    $media.style.position = "absolute";
-    $media.style.height = "100%";
-    $media.style.width = "auto";
+    $media.style.setProperty( 'position', 'absolute', 'important' );
+    $media.style.setProperty( 'height',   '100%',     'important' );
+    $media.style.setProperty( 'width',    'auto',     'important' );
 
     if (
       $media.clientWidth > $container.clientWidth
     ) {
-      $media.style.top = "0";
-      $media.style.marginTop = "0";
-      $media.style.left = "50%";
-      $media.style.marginLeft = ($media.clientWidth / -2) + "px";
+      $media.style.setProperty( 'top',        '0',   'important' );
+      $media.style.setProperty( 'margin-top', '0',   'important' );
+      $media.style.setProperty( 'left',       '50%', 'important' );
+      $media.style.setProperty( 'margin-left', ($media.clientWidth / -2) + 'px', 'important' );
     }
     else {
-      $media.style.width = "100%";
-      $media.style.height = "auto";
-      $media.style.left = "0";
-      $media.style.marginLeft = "0";
-      $media.style.top = "50%";
-      $media.style.marginTop = ($media.clientHeight / -2) + "px";
+      $media.style.setProperty( 'width',       '100%', 'important' );
+      $media.style.setProperty( 'height',      'auto', 'important' );
+      $media.style.setProperty( 'left',        '0',    'important' );
+      $media.style.setProperty( 'margin-left', '0',    'important' );
+      $media.style.setProperty( 'top',         '50%',  'important' );
+      $media.style.setProperty( 'margin-top',  ($media.clientHeight / -2) + 'px', 'important' );
     }
   };
 
