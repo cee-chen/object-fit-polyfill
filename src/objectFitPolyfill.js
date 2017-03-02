@@ -19,8 +19,8 @@
   /**
    * Check the container's parent element to make sure it will
    * correctly handle and clip absolutely positioned children
-   * @private
-   * @param $container - parent element
+   *
+   * @param {node} $container - parent element
    */
   var checkParentContainer = function($container) {
     var styles = window.getComputedStyle($container, null);
@@ -43,14 +43,14 @@
       $container.style.height = "100%";
     }
 
-    $container.className = $container.className + " object-fit-polyfill";
+    $container.classList.add("object-fit-polyfill");
   };
 
   /**
    * Check for pre-set max-width/height or min-width/height,
    * which can mess up image calculations
-   * @private
-   * @param $media - img/video element
+   *
+   * @param {node} $media - img/video element
    */
   var checkMediaConstraints = function($media) {
     var styles = window.getComputedStyle($media, null);
@@ -72,10 +72,10 @@
 
   /**
    * Calculate & set object-position
-   * @private
-   * @param axis - string, either "x" or "y"
-   * @param $media - img or video element
-   * @param objectPosition - string, e.g. "50% 50%", "top bottom"
+   *
+   * @param {string} axis - either "x" or "y"
+   * @param {node} $media - img or video element
+   * @param {string} objectPosition - e.g. "50% 50%", "top bottom"
    */
   var setPosition = function(axis, $media, objectPosition) {
     objectPosition = objectPosition.split(" ");
@@ -140,8 +140,8 @@
 
   /**
    * Calculate & set object-fit
-   * @private
-   * @param $media - img/video/picture element
+   *
+   * @param {node} $media - img/video/picture element
    */
   var objectFit = function($media) {
     // Fallbacks, IE 10- data
@@ -202,8 +202,7 @@
   };
 
   /**
-   * Initialize & run plugin
-   * @public
+   * Initialize plugin
    */
   var objectFitPolyfill = function() {
     var media = document.querySelectorAll("[data-object-fit]");
