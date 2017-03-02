@@ -168,4 +168,6 @@ if (objectFitPolyfill() !== false) {
   window.addEventListener("resize", function() {
     objectFitPolyfill();
   });
+  
+  window.objectFitPolyfill = objectFitPolyfill;
 }
