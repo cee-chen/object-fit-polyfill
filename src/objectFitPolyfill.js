@@ -21,6 +21,16 @@
   } else {
     // Browser globals
     root.objectFitPolyfill = factory();
+
+    // Init objectFitPolyfill
+    if (objectFitPolyfill() !== false) {
+      document.addEventListener("DOMContentLoaded", function() {
+        objectFitPolyfill();
+      });
+      window.addEventListener("resize", function() {
+        objectFitPolyfill();
+      });
+    }
   }
 }(this, function () {
   "use strict";
@@ -251,12 +261,3 @@
   return objectFitPolyfill;
 
 }));
-
-if (objectFitPolyfill() !== false) {
-  document.addEventListener("DOMContentLoaded", function() {
-    objectFitPolyfill();
-  });
-  window.addEventListener("resize", function() {
-    objectFitPolyfill();
-  });
-}
