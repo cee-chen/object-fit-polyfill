@@ -188,14 +188,14 @@
       fit === "cover"   && $media.clientWidth > $container.clientWidth ||
       fit === "contain" && $media.clientWidth < $container.clientWidth
     ) {
-      $media.style.top = "0";
+      $media.style.top = "auto";
       $media.style.marginTop = "0";
       setPosition("x", $media, position);
     }
     else if (fit !== "scale-down") {
       $media.style.width = "100%";
       $media.style.height = "auto";
-      $media.style.left = "0";
+      $media.style.left = "auto";
       $media.style.marginLeft = "0";
       setPosition("y", $media, position);
     }
