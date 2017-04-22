@@ -53,18 +53,26 @@
   };
 
   /**
-   * Check for pre-set max-width/height or min-width/height,
-   * which can mess up image calculations
+   * Check for pre-set max-width/height, min-width/height,
+   * positioning, or margins, which can mess up image calculations
    *
    * @param {node} $media - img/video element
    */
-  var checkMediaConstraints = function($media) {
+  var checkMediaProperties = function($media) {
     var styles = window.getComputedStyle($media, null);
     var constraints = {
       "max-width":  "none",
       "max-height": "none",
       "min-width":  "0px",
-      "min-height": "0px"
+      "min-height": "0px",
+      "top": "auto",
+      "right": "auto",
+      "bottom": "auto",
+      "left": "auto",
+      "margin-top": "0px",
+      "margin-right": "0px",
+      "margin-bottom": "0px",
+      "margin-left": "0px",
     };
 
     for (var property in constraints) {
@@ -86,8 +94,8 @@
     var $container = $media.parentNode;
     checkParentContainer($container);
 
-    // Check for max-width/height or min-width/height, which can mess up image calculations
-    checkMediaConstraints($media);
+    // Check for any pre-set CSS which could mess up image calculations
+    checkMediaProperties($media);
 
     // Mathematically figure out which side needs covering, and add CSS positioning & centering
     $media.style.position = "absolute";
