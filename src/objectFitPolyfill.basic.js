@@ -46,7 +46,10 @@
       $container.style.height = "100%";
     }
 
-    $container.classList.add("object-fit-polyfill");
+    // Add a CSS class hook, in case people need to override styles for any reason.
+    if ($container.className.indexOf("object-fit-polyfill") === -1) {
+      $container.className = $container.className + " object-fit-polyfill";
+    }
   };
 
   /**
