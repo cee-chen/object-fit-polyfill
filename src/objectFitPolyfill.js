@@ -94,6 +94,9 @@
     else if (axis === "y") {
       position = objectPosition[1];
       other = objectPosition[0];
+      if (position === undefined || position === null) { // only one parameter
+        position = other;
+      }
       start = "top";
       end = "bottom";
       side = $media.clientHeight;
