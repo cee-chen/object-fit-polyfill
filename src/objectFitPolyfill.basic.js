@@ -105,7 +105,7 @@
     if (
       $media.clientWidth > $container.clientWidth
     ) {
-      $media.style.top = "0";
+      $media.style.top = "auto";
       $media.style.marginTop = "0";
       $media.style.left = "50%";
       $media.style.marginLeft = ($media.clientWidth / -2) + "px";
@@ -113,7 +113,7 @@
     else {
       $media.style.width = "100%";
       $media.style.height = "auto";
-      $media.style.left = "0";
+      $media.style.left = "auto";
       $media.style.marginLeft = "0";
       $media.style.top = "50%";
       $media.style.marginTop = ($media.clientHeight / -2) + "px";
