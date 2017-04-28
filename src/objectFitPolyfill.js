@@ -137,11 +137,15 @@
       if (position < 50) {
         $media.style[start] = position + "%";
         $media.style["margin-" + start] = side * (position / -100) + "px";
+        $media.style[end] = 'auto';
+        $media.style["margin-" + end] = "0px";
       }
       else {
         position = 100 - position;
         $media.style[end] = position + "%";
         $media.style["margin-" + end] = side * (position / -100) + "px";
+        $media.style[start] = 'auto';
+        $media.style["margin-" + start] = "0px";
       }
 
       return;
