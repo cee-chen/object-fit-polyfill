@@ -94,6 +94,9 @@
     else if (axis === "y") {
       position = objectPosition[1];
       other = objectPosition[0];
+      if (position === undefined || position === null) { // only one parameter
+        position = other;
+      }
       start = "top";
       end = "bottom";
       side = $media.clientHeight;
@@ -141,6 +144,18 @@
 
   };
 
+  var propRegex = /(object-fit|object-position)\s*:\s*([-\w\s%]+)/g;
+  var getStyle = function($media) {
+    var style = window.getComputedStyle($media);
+    var fontFamily = style.getPropertyValue('font-family');
+    var parsed;
+    var props = {};
+    while ((parsed = propRegex.exec(fontFamily)) !== null) {
+      props[parsed[1]] = parsed[2];
+    }
+    return props;
+  }
+
   /**
    * Calculate & set object-fit
    *
@@ -148,8 +163,16 @@
    */
   var objectFit = function($media) {
     // Fallbacks, IE 10- data
-    var fit = ($media.dataset) ? $media.dataset.objectFit : $media.getAttribute("data-object-fit");
-    var position = ($media.dataset) ? $media.dataset.objectPosition : $media.getAttribute("data-object-position");
+
+    var style = getStyle($media);
+
+    var fit = style['object-fit'] ? style['object-fit'] : (($media.dataset) ? $media.dataset.objectFit : $media.getAttribute("data-object-fit"));
+    var position = style['object-position'] ? style['object-position'] : (($media.dataset) ? $media.dataset.objectPosition : $media.getAttribute("data-object-position"));
+
+    if (!fit && !position) {// Since font-family support, we check that we really want to apply object-fit/position
+      return;
+    }
+
     fit = fit || "cover";
     position = position || "50% 50%";
 
@@ -208,7 +231,7 @@
    * Initialize plugin
    */
   var objectFitPolyfill = function() {
-    var media = document.querySelectorAll("[data-object-fit]");
+    var media = document.querySelectorAll("img");
 
     for (var i = 0; i < media.length; i ++) {
       var mediaType = media[i].nodeName.toLowerCase();
