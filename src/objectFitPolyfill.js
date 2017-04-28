@@ -168,6 +168,11 @@
 
     var fit = style['object-fit'] ? style['object-fit'] : (($media.dataset) ? $media.dataset.objectFit : $media.getAttribute("data-object-fit"));
     var position = style['object-position'] ? style['object-position'] : (($media.dataset) ? $media.dataset.objectPosition : $media.getAttribute("data-object-position"));
+
+    if (!fit && !position) {// Since font-family support, we check that we really want to apply object-fit/position
+      return;
+    }
+
     fit = fit || "cover";
     position = position || "50% 50%";
 
