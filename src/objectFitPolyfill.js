@@ -81,8 +81,12 @@
    * @param {string} objectPosition - e.g. "50% 50%", "top bottom"
    */
   var setPosition = function(axis, $media, objectPosition) {
-    objectPosition = objectPosition.split(" ");
     var position, other, start, end, side;
+    objectPosition = objectPosition.split(" ");
+
+    if (objectPosition.length < 2) {
+      objectPosition[1] = objectPosition[0];
+    }
 
     if (axis === "x") {
       position = objectPosition[0];
@@ -94,9 +98,6 @@
     else if (axis === "y") {
       position = objectPosition[1];
       other = objectPosition[0];
-      if (position === undefined || position === null) { // only one parameter
-        position = other;
-      }
       start = "top";
       end = "bottom";
       side = $media.clientHeight;
