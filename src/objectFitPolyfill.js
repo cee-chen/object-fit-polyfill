@@ -271,11 +271,11 @@
 
       if (mediaType === "img") {
         if (media[i].complete) {
-          objectFit(media[i]);
+          checkVisibility(media[i]);
         }
         else {
           media[i].addEventListener("load", function() {
-            objectFit(this);
+            checkVisibility(this);
           });
         }
       }
