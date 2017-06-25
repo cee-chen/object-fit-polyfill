@@ -122,11 +122,26 @@
 
   /**
    * Initialize plugin
+   *
+   * @param {node} media - Optional specific DOM node(s) to be polyfilled
    */
-  var objectFitPolyfill = function() {
-    var media = document.querySelectorAll("[data-object-fit]");
+  var objectFitPolyfill = function(media) {
+    if (typeof media === "undefined") {
+      // If left blank, all media on the page will be polyfilled.
+      media = document.querySelectorAll("[data-object-fit]");
+    } else if (media && media.nodeName) {
+      // If it's a single node, wrap it in an array so it works.
+      media = [media];
+    } else if (typeof media === "object" && media.length && media[0].nodeName) {
+      // If it's an array of DOM nodes (e.g. a jQuery selector), it's fine as-is.
+      media = media;
+    } else {
+      // Otherwise, if it's invalid or an incorrect type, return false to let people know.
+      return false;
+    }
 
-    for (var i = 0; i < media.length; i ++) {
+    for (var i = 0; i < media.length; i++) {
+      if (!media[i].nodeName) { continue; }
       var mediaType = media[i].nodeName.toLowerCase();
 
       if (mediaType === "img") {
