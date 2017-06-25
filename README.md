@@ -3,7 +3,7 @@ A polyfill for browsers that don't support the `object-fit` CSS property. Unsure
 
 ## Features
 
-- Lightweight - 2.6KB (1.7KB with the basic version)
+- Lightweight - 2.8KB (1.8KB with the basic version)
 - Vanilla Javascript - works with or without jQuery
 - Supports IE 9+, iOS 7-, and Android 4.4-
 - Supports `object-position`
@@ -19,7 +19,9 @@ You can check out the [bare-bones demo here](http://constancecchen.github.io/obj
 
 Unlike [object-fit-images](https://github.com/bfred-it/object-fit-images) or [Primož Cigler's method](https://medium.com/@primozcigler/neat-trick-for-css-object-fit-fallback-on-edge-and-other-browsers-afbc53bbb2c3#.17fpxgk0w) (both excellent alternatives if you'd rather not use this one), this polyfill does not set a background image on the parent container, but instead resizes and repositions the image (using inline CSS for height, width, absolute positioning, and negative margins).
 
-The polyfilled item will get the class `object-fit-polyfill` if styling-issues are occuring.
+The polyfilled item will receive the class `object-fit-polyfill` if styling issues occur that require overrides.
+
+## Why bother?
 
 If you're wondering: why bother using `<img>` tags versus `background-image`? Here's a couple reasons:
 
@@ -75,7 +77,7 @@ If you're only interested in using the basic polyfill (which assumes `object-fit
 
 ```html
 <div class="container">
-	<img class="media" data-object-fit src="https://unsplash.it/800/600/" alt="">
+  <img class="media" data-object-fit src="https://unsplash.it/800/600/" alt="">
 </div>
 
 <script src="dist/objectFitPolyfill.basic.min.js"></script>
@@ -91,6 +93,26 @@ bower install objectFitPolyfill
 
 ```
 npm install objectFitPolyfill
+```
+
+## Advanced usage
+
+If you need to dynamically call the polyfill on the fly for any reason (for example, carousels or lazy-loaded images), you can do so quite easily:
+
+```
+// Rerun the polyfill on all elements with the data attribute
+objectFitPolyfill();
+
+// Rerun the polyfill on a single DOM node
+var element = document.querySelector('.foo');
+objectFitPolyfill(element);
+
+// Rerun the polyfill on multiple elements
+var elements = document.querySelectorAll('.bar');
+objectFitPolyfill(elements);
+
+// Rerun the polyfill with a jQuery selector
+objectFitPolyfill($('.baz'));
 ```
 
 ## Requests?
