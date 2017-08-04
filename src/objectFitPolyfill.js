@@ -10,8 +10,16 @@
 (function(){
   "use strict";
 
-  // If the browser does support object-fit, we don't need to continue
-  if ("objectFit" in document.documentElement.style !== false) {
+  // If it's already available, skip it
+  if (window.objectFitPolyfill) {
+    return;
+  }
+
+  var objectFitSupported = "objectFit" in document.documentElement.style !== false,
+      objectPositionSupported = "objectPosition" in document.documentElement.style !== false;
+
+  // If the browser does support object-fit and object-position, we don't need to continue
+  if (objectFitSupported && objectPositionSupported) {
     window.objectFitPolyfill = function() { return false };
     return;
   }
@@ -162,6 +170,17 @@
     // Fallbacks, IE 10- data
     var fit = ($media.dataset) ? $media.dataset.objectFit : $media.getAttribute("data-object-fit");
     var position = ($media.dataset) ? $media.dataset.objectPosition : $media.getAttribute("data-object-position");
+
+    // If object-fit is supported but not object-position and media does't have position, skip it
+    if (!objectPositionSupported) {
+      if (position) {
+        $media.style.objectFit = "fill";
+      }
+      else {
+        return;
+      }
+    }
+
     fit = fit || "cover";
     position = position || "50% 50%";
 
