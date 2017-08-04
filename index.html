@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Object-fit Polyfill Demo</title>
 
     <!-- CSS -->
@@ -23,9 +22,25 @@
         color: inherit;
       }
 
+      .col {
+        float: left;
+        width: 50%;
+        padding: 1em;
+        box-sizing: border-box;
+      }
+
+      .object-fit-label {
+        white-space: nowrap;
+        display: block;
+        padding: 0.5em;
+        background-color: white;
+        margin-bottom: 1px;
+      }
+
       .container-1 {
         width: 100%;
         height: 100%;
+        margin-bottom: 1em;
       }
       .heading {
         position: relative;
@@ -40,11 +55,9 @@
       }
       .container-2 {
         position: relative;
-        float: left;
-        width: 50%;
         height: 25em;
-        margin: 2em auto;
         overflow: hidden;
+        background: #dcdcdc;
       }
 
       .img-cover {
@@ -53,22 +66,44 @@
         left: 0;
         width: 100%;
         height: 100%;
+        -o-object-fit: cover;
         object-fit: cover;
       }
       .img-contain {
         width: 100%;
         height: 100%;
+        -o-object-fit: contain;
         object-fit: contain;
       }
       .img-none {
         width: 100%;
         height: 100%;
+        -o-object-fit: none;
         object-fit: none;
       }
       .img-scale-down {
         width: 100%;
         height: 100%;
+        -o-object-fit: scale-down;
         object-fit: scale-down;
+      }
+      .img-top-left{
+        -o-object-position: top left;
+        object-position: top left;
+      }
+      .img-50-100{
+        -o-object-position: 50% 100%;
+        object-position: 50% 100%;
+      }
+      .img-bottom-right{
+        -o-object-position: bottom right;
+        object-position: bottom right;
+      }
+
+      @media screen and (max-width:970px){
+        .col{
+          width: 100%;
+        }
       }
     </style>
   </head>
@@ -81,34 +116,97 @@
       </div>
     </header>
 
-    <div class="container-2">
-      <img class="img-contain" data-object-fit="contain" src="https://unsplash.it/1000/800/?image=500" alt="">
-    </div>
-    <div class="container-2">
-      <img class="img-none" data-object-fit="none" src="https://unsplash.it/1000/800/?image=500" alt="">
-    </div>
+        <div class="col">
+          <div class="object-fit-label"><code>&lt;img&gt; - contain</code></div>
+          <div class="container-2">
+            <img class="img-contain" data-object-fit="contain" src="https://unsplash.it/1000/800/?image=500" alt="">
+          </div>
+        </div>
 
-    <div class="container-2">
-      <img class="img-scale-down" data-object-fit="scale-down" src="https://unsplash.it/250/200/?image=500" alt="">
-    </div>
-    <div class="container-2">
-      <img class="img-scale-down" data-object-fit="scale-down" src="https://unsplash.it/1000/800/?image=500" alt="">
-    </div>
+        <div class="col">
+          <div class="object-fit-label"><code>&lt;img&gt; - none</code></div>
+          <div class="container-2">
+            <img class="img-none" data-object-fit="none" src="https://unsplash.it/1000/800/?image=500" alt="">
+          </div>
+        </div>
 
-    <div class="container-2">
-      <picture>
-        <source srcset="https://unsplash.it/1920/1080/?image=500" media="(min-width: 1800px)">
-        <source srcset="https://unsplash.it/500/300/?image=502" media="(max-width: 500px)">
-        <img class="img-cover" data-object-fit="cover" src="https://unsplash.it/1000/720/?image=501" alt="">
-      </picture>
-    </div>
-    <div class="container-2">
-      <video class="img-cover" data-object-fit="cover" preload="auto" autoplay="" loop="" poster="https://s3.amazonaws.com/coverr-public/poster/Puppiness.jpg">
-        <source src="https://coverr.co/s3/mp4/Puppiness.mp4" type="video/mp4">
-        <source src="https://coverr.co/s3/webm/Puppiness.webm" type="video/webm">
-        Your browser does not support the video tag.
-      </video>
-    </div>
+        <div class="col">
+          <div class="object-fit-label"><code>&lt;img&gt; - scale-down</code></div>
+          <div class="container-2">
+            <img class="img-scale-down" data-object-fit="scale-down" src="https://unsplash.it/250/200/?image=500" alt="">
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="object-fit-label"><code>&lt;img&gt; - scale-down (large image)</code></div>
+          <div class="container-2">
+            <img class="img-scale-down" data-object-fit="scale-down" src="https://unsplash.it/1000/800/?image=500" alt="">
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="object-fit-label"><code>&lt;img&gt; - contain - top left</code></div>
+          <div class="container-2">
+            <img class="img-contain img-top-left" data-object-fit="contain" data-object-position="top left" src="https://unsplash.it/1000/800/?image=500" alt="">
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="object-fit-label"><code>&lt;img&gt; - none - bottom right</code></div>
+          <div class="container-2">
+            <img class="img-none img-bottom-right" data-object-fit="none" data-object-position="bottom right" src="https://unsplash.it/1000/800/?image=500" alt="">
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="object-fit-label"><code>&lt;img&gt; - cover - top left</code></div>
+          <div class="container-2">
+            <img class="img-cover img-top-left" data-object-fit="cover" data-object-position="top left" src="https://unsplash.it/1000/800/?image=500" alt="">
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="object-fit-label"><code>&lt;img&gt; - cover - bottom right</code></div>
+          <div class="container-2">
+            <img class="img-cover img-bottom-right" data-object-fit="cover" data-object-position="bottom right" src="https://unsplash.it/1000/800/?image=500" alt="">
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="object-fit-label"><code>&lt;img&gt; - scale-down - 50% 100%</code></div>
+          <div class="container-2">
+            <img class="img-scale-down img-50-100" data-object-fit="scale-down" data-object-position="50% 100%" src="https://unsplash.it/250/200/?image=500" alt="">
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="object-fit-label"><code>&lt;img&gt; - scale-down (large image) - bottom right</code></div>
+          <div class="container-2">
+            <img class="img-scale-down img-bottom-right" data-object-fit="scale-down" data-object-position="bottom right" src="https://unsplash.it/1000/800/?image=500" alt="">
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="object-fit-label"><code>&lt;picture&gt; - cover</code></div>
+          <div class="container-2">
+            <picture>
+              <source srcset="https://unsplash.it/1920/1080/?image=500" media="(min-width: 1800px)">
+              <source srcset="https://unsplash.it/500/300/?image=502" media="(max-width: 500px)">
+              <img class="img-cover" data-object-fit="cover" src="https://unsplash.it/1000/720/?image=501" alt="">
+            </picture>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="object-fit-label"><code>&lt;video&gt; - cover</code></div>
+          <div class="container-2">
+            <video class="img-cover" data-object-fit="cover" preload="auto" autoplay="" loop="" poster="https://s3.amazonaws.com/coverr-public/poster/Puppiness.jpg">
+              <source src="https://coverr.co/s3/mp4/Puppiness.mp4" type="video/mp4">
+              <source src="https://coverr.co/s3/webm/Puppiness.webm" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
 
     <!-- Javascript -->
     <script src="dist/objectFitPolyfill.min.js"></script>
