@@ -171,7 +171,7 @@
     var fit = ($media.dataset) ? $media.dataset.objectFit : $media.getAttribute("data-object-fit");
     var position = ($media.dataset) ? $media.dataset.objectPosition : $media.getAttribute("data-object-position");
 
-    // If object-fit is supported but not object-position and media does't have position, skip it
+    // If object-fit is supported but not object-position and media doesn't have position, skip it
     if (!objectPositionSupported) {
       if (position) {
         $media.style.objectFit = "fill";
