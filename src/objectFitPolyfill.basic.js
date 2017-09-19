@@ -13,6 +13,11 @@
 (function(){
   "use strict";
 
+  // if the page is being rendered on the server, don't continue
+  if (typeof window === "undefined") {
+      return;
+  }
+
   // If the browser does support object-fit, we don't need to continue
   if ("objectFit" in document.documentElement.style !== false) {
     window.objectFitPolyfill = function() { return false };
