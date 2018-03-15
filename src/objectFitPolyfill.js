@@ -16,7 +16,7 @@
   }
 
   // Workaround for Edge 16, which only implemented object-fit for <img> tags
-  var isEdge16 = ( window.navigator.userAgent.indexOf("Edge/16.") !== -1 );
+  var isEdge16 = window.navigator.userAgent.match(/Edge\/\d\d./) !== null
 
   // If the browser does support object-fit, we don't need to continue
   if ("objectFit" in document.documentElement.style !== false && !isEdge16) {
