@@ -19,9 +19,11 @@
   // TODO: Keep an eye on Edge to determine which version has full final support
   var edgeVersion = window.navigator.userAgent.match(/Edge\/(\d{2})\./);
   var edgePartialSupport = (edgeVersion) ? (parseInt(edgeVersion[1], 10) >= 16) : false;
+  var objectFitSupport = "objectFit" in document.documentElement.style !== false ||
+      "OObjectFit" in document.documentElement.style !== false;
 
   // If the browser does support object-fit, we don't need to continue
-  if ("objectFit" in document.documentElement.style !== false && !edgePartialSupport) {
+  if (objectFitSupport && !edgePartialSupport) {
     window.objectFitPolyfill = function() { return false };
     return;
   }
