@@ -13,7 +13,7 @@ A polyfill for browsers that don't support the `object-fit` CSS property. Unsure
 
 ## Demo
 
-You can check out the [bare-bones demo here](http://constancecchen.github.io/object-fit-polyfill). Note that the plugin simply won't do anything if you're on a browser that already supports object-fit, so you'll want to test it on IE or older iOS/Android browsers.
+You can check out the [bare-bones demo here](http://constancecchen.github.io/object-fit-polyfill/demo/). Note that the plugin simply won't do anything if you're on a browser that already supports object-fit, so you'll want to test it on IE or older iOS/Android browsers.
 
 ## How does it work?
 

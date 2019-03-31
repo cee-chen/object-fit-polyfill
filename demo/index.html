@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Object-fit Polyfill Demo</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="container-1">
+      <img class="img img-cover" data-object-fit="cover" src="image-flowers-1280x720.jpeg" srcset="image-road-1920x1080.jpeg 1800w, image-flowers-1280x720.jpeg 1000w, image-fireworks-500x333.jpeg 500w" alt="">
+      <div class="heading heading-intro">
+        <h1>An Object-fit Polyfill</h1>
+        View this page in IE 9+, Safari 7.1-, or Android 4.4- to test! Or <a href="https://github.com/constancecchen/object-fit-polyfill">view the GitHub repo</a>.
+      </div>
+    </header>
+
+    <h2 class="heading">Cover fit on picture, video, and canvas elements</h2>
+    <div class="clearfix">
+      <div class="container container-3">
+        <picture>
+          <source srcset="image-road-1920x1080.jpeg" media="(min-width: 1800px)">
+          <source srcset="image-fireworks-500x333.jpeg" media="(max-width: 500px)">
+          <img class="img img-cover" data-object-fit="cover" src="image-flowers-1280x720.jpeg" alt="">
+        </picture>
+      </div>
+      <div class="container container-3">
+        <video class="img img-cover" data-object-fit="cover" preload="auto" autoplay muted loop poster="video-puppy.jpg">
+          <source src="video-puppy.mp4" type="video/mp4">
+          <source src="video-puppy.webm" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="container container-3">
+        <canvas class="img img-cover" data-object-fit="cover" id="canvas" width="500" height="500" ></canvas>
+        <script>
+          var canvas = document.getElementById('canvas');
+          if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = 'rgb(125, 125, 125)';
+            ctx.fillRect(0, 0, 500, 500);
+
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+            ctx.beginPath();
+            ctx.arc(250, 250, 100, 0, 2 * Math.PI, false);
+            ctx.fill();
+          }
+        </script>
+      </div>
+    </div>
+
+    <h2 class="heading">Contain, None, and Fill fits</h2>
+    <div class="clearfix">
+      <div class="container container-3">
+        <img class="img img-contain" data-object-fit="contain" src="image-food-1280x853.jpeg" alt="">
+      </div>
+      <div class="container container-3">
+        <img class="img img-none" data-object-fit="none" src="image-food-1280x853.jpeg" alt="">
+      </div>
+      <div class="container container-3">
+        <img class="img img-fill" data-object-fit="fill" src="image-food-1280x853.jpeg" alt="">
+      </div>
+    </div>
+
+    <h2 class="heading">Scale-down fit</h2>
+    <div class="clearfix">
+      <div class="container container-2">
+        <img class="img img-scale-down" data-object-fit="scale-down" src="image-food-250x167.jpeg" alt="">
+      </div>
+      <div class="container container-2">
+        <img class="img img-scale-down" data-object-fit="scale-down" src="image-food-1280x853.jpeg" alt="">
+      </div>
+    </div>
+
+    <script src="../dist/objectFitPolyfill.min.js"></script>
+  </body>
+</html>

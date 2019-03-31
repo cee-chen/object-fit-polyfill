@@ -1,0 +1,83 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #111;
+  color: #fff;
+}
+a {
+  color: inherit;
+}
+h1, h2 {
+  margin: 0;
+}
+
+.heading {
+  padding: 1em;
+  text-align: center;
+}
+.heading-intro {
+  position: relative;
+  top: 50%;
+  background-color: rgba(0,0,0, 0.8);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/**
+ * Containers
+ */
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.container {
+  position: relative;
+  float: left;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.container-1 {
+  width: 100%;
+  height: 100%;
+}
+.container-2 {
+  width: 50%;
+  height: 25em;
+}
+.container-3 {
+  width: 33.333333%;
+  height: 20em;
+}
+
+/**
+ * object-fit styling
+ */
+
+.img {
+  width: 100%;
+  height: 100%;
+}
+.img-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+.img-contain {
+  object-fit: contain;
+}
+.img-none {
+  object-fit: none;
+}
+.img-scale-down {
+  object-fit: scale-down;
+}
+.img-fill {
+  object-fit: fill;
+}
