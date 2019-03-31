@@ -7,7 +7,7 @@ A polyfill for browsers that don't support the `object-fit` CSS property. Unsure
 - Vanilla Javascript - works with or without jQuery
 - Supports IE 9+, iOS 7-, and Android 4.4-
 - Supports `object-position`
-- Works with `image`, `video`, `srcset`, and `picture`
+- Works with `img`, `picture`, `srcset`, `video`, and `canvas`
 - Plug and play - just include the .js file and set data attributes on your elements.
 - Please note: This plugin makes the assumption that the parent container is acting as a picture frame, and already has a height & width set.
 
@@ -27,7 +27,7 @@ If you're wondering: why bother using `<img>` tags versus `background-image`? He
 
 1. `<img>` tags have better SEO/crawling visibility.
 2. In cases where images are dynamically returned and can't simply be added to your stylesheets (e.g., CMS's), you're forced to inline your background-image. This solves that somewhat-ugly-looking inline CSS.
-3. `background-image` doesn't work with `video` or `picture` elements.
+3. `background-image` doesn't work with `picture`, `video`, or `canvas` elements.
 
 Of course, there's still plenty of cases where using a background image makes more sense than a regular image.
 
