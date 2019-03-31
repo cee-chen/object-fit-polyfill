@@ -271,6 +271,9 @@
           });
         }
       }
+      else {
+        objectFit(media[i]);
+      }
     }
 
     return true;
