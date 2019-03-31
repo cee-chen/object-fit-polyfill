@@ -182,25 +182,29 @@
     // Check for any pre-set CSS which could mess up image calculations
     checkMediaProperties($media);
 
-    // Mathematically figure out which side needs covering, and add CSS positioning & centering
+    // Reset any pre-set width/height CSS and handle fit positioning
     $media.style.position = "absolute";
-    $media.style.height = "100%";
     $media.style.width = "auto";
+    $media.style.height = "auto";
 
+    // `scale-down` chooses either `none` or `contain`, whichever is smaller
     if (fit === "scale-down") {
-      $media.style.height = "auto";
-
       if (
         $media.clientWidth < $container.clientWidth &&
         $media.clientHeight < $container.clientHeight
       ) {
-        setPosition("x", $media, position);
-        setPosition("y", $media, position);
+        fit = "none";
       }
       else {
         fit = "contain";
-        $media.style.height = "100%";
       }
+    }
+
+    // `none` (width/height auto) and `fill` (100%) and are straightforward
+    if (fit === "none") {
+      setPosition("x", $media, position);
+      setPosition("y", $media, position);
+      return;
     }
 
     if (fit === "fill") {
@@ -211,13 +215,10 @@
       return;
     }
 
-    if (fit === "none") {
-      $media.style.width = "auto";
-      $media.style.height = "auto";
-      setPosition("x", $media, position);
-      setPosition("y", $media, position);
-    }
-    else if (
+    // `cover` and `contain` must figure out which side needs covering, and add CSS positioning & centering
+    $media.style.height = "100%";
+
+    if (
       fit === "cover"   && $media.clientWidth > $container.clientWidth ||
       fit === "contain" && $media.clientWidth < $container.clientWidth
     ) {
@@ -225,7 +226,7 @@
       $media.style.marginTop = "0";
       setPosition("x", $media, position);
     }
-    else if (fit !== "scale-down") {
+    else {
       $media.style.width = "100%";
       $media.style.height = "auto";
       $media.style.left = "0";
