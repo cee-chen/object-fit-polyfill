@@ -203,6 +203,14 @@
       }
     }
 
+    if (fit === "fill") {
+      $media.style.width = "100%";
+      $media.style.height = "100%";
+      setPosition("x", $media, position);
+      setPosition("y", $media, position);
+      return;
+    }
+
     if (fit === "none") {
       $media.style.width = "auto";
       $media.style.height = "auto";
