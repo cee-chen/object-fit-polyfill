@@ -1,15 +1,16 @@
-"use strict";
+'use strict';
 
-var gulp = require("gulp"),
-    uglify = require("gulp-uglify"),
-    rename = require("gulp-rename");
+var gulp = require('gulp'),
+  uglify = require('gulp-uglify'),
+  rename = require('gulp-rename');
 
 /*----------------------------------------------
   Uglify JS
 -----------------------------------------------*/
-gulp.task("default", function() {
-  return gulp.src("src/*.js")
+gulp.task('default', function() {
+  return gulp
+    .src('src/*.js')
     .pipe(uglify())
-    .pipe(rename({suffix: ".min"}))
-    .pipe(gulp.dest("dist/"));
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest('dist/'));
 });

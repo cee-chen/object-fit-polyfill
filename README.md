@@ -1,4 +1,5 @@
 # object-fit-polyfill
+
 A polyfill for browsers that don't support the `object-fit` CSS property. Unsure of what the `object-fit` does? Essentially `object-fit` is to `<img>` tags what `background-size` is to `background-image`. You can check out the [MDN page](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) for more details.
 
 ## Features
@@ -38,20 +39,25 @@ Initialization:
 ```html
 <!-- Minimum CSS -->
 <style>
-.container {
-  width: 25em; /* Or whatever you want it to be */
-  height: 25em; /* Or whatever you want it to be */
-}
-.media {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Or whatever object-fit you want */
-}
+  .container {
+    width: 25em; /* Or whatever you want it to be */
+    height: 25em; /* Or whatever you want it to be */
+  }
+  .media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Or whatever object-fit you want */
+  }
 </style>
 
 <!-- Minimum HTML -->
 <div class="container">
-  <img class="media" data-object-fit="cover" src="https://unsplash.it/800/600/" alt="">
+  <img
+    alt=""
+    src="https://unsplash.it/800/600/"
+    class="media"
+    data-object-fit="cover"
+  />
 </div>
 
 <script src="dist/objectFitPolyfill.min.js"></script>
@@ -61,15 +67,33 @@ Customized object-fit/object-position:
 
 ```html
 <div class="container">
-  <img class="media" data-object-fit="contain" data-object-position="top left" src="https://unsplash.it/800/600/" alt="">
+  <img
+    alt=""
+    src="https://unsplash.it/800/600/"
+    class="media"
+    data-object-fit="contain"
+    data-object-position="top left"
+  />
 </div>
 
 <div class="container">
-  <img class="media" data-object-fit="none" data-object-position="25% 75%" src="https://unsplash.it/800/600/" alt="">
+  <img
+    alt=""
+    src="https://unsplash.it/800/600/"
+    class="media"
+    data-object-fit="none"
+    data-object-position="25% 75%"
+  />
 </div>
 
 <div class="container">
-  <img class="media" data-object-fit="scale-down" data-object-position="3em -1em" src="https://unsplash.it/800/600/" alt="">
+  <img
+    alt=""
+    src="https://unsplash.it/800/600/"
+    class="media"
+    data-object-fit="scale-down"
+    data-object-position="3em -1em"
+  />
 </div>
 ```
 
@@ -77,7 +101,12 @@ If you're only interested in using the basic polyfill (which assumes `object-fit
 
 ```html
 <div class="container">
-  <img class="media" data-object-fit src="https://unsplash.it/800/600/" alt="">
+  <img
+    alt=""
+    src="https://unsplash.it/800/600/"
+    class="media"
+    data-object-fit
+  />
 </div>
 
 <script src="dist/objectFitPolyfill.basic.min.js"></script>

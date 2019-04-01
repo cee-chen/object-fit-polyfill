@@ -1,7 +1,9 @@
-html, body {
+html,
+body {
   margin: 0;
   height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
   line-height: 1.5;
   background-color: #111;
   color: #fff;
@@ -9,7 +11,8 @@ html, body {
 a {
   color: inherit;
 }
-h1, h2 {
+h1,
+h2 {
   margin: 0;
 }
 
@@ -20,7 +23,7 @@ h1, h2 {
 .heading-intro {
   position: relative;
   top: 50%;
-  background-color: rgba(0,0,0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -31,7 +34,7 @@ h1, h2 {
  */
 
 .clearfix::after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
