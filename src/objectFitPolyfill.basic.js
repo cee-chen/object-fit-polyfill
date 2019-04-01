@@ -136,8 +136,8 @@
    * @param {node} media - Optional specific DOM node(s) to be polyfilled
    */
   var objectFitPolyfill = function(media) {
-    if (typeof media === 'undefined') {
-      // If left blank, all media on the page will be polyfilled.
+    if (typeof media === 'undefined' || media instanceof Event) {
+      // If left blank, or a default event, all media on the page will be polyfilled.
       media = document.querySelectorAll('[data-object-fit]');
     } else if (media && media.nodeName) {
       // If it's a single node, wrap it in an array so it works.
@@ -179,12 +179,8 @@
     return true;
   };
 
-  document.addEventListener('DOMContentLoaded', function() {
-    objectFitPolyfill();
-  });
-  window.addEventListener('resize', function() {
-    objectFitPolyfill();
-  });
+  document.addEventListener('DOMContentLoaded', objectFitPolyfill);
+  window.addEventListener('resize', objectFitPolyfill);
 
   window.objectFitPolyfill = objectFitPolyfill;
 })();
