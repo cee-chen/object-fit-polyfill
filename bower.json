@@ -3,22 +3,19 @@
   "description": "A Javascript polyfill for browsers that don't support the object-fit CSS property.",
   "homepage": "https://github.com/constancecchen/object-fit-polyfill",
   "main": "dist/objectFitPolyfill.min.js",
-  "authors": [
-    "Constance Chen <c>"
-  ],
+  "authors": ["Constance Chen <c>"],
   "moduleType": [],
-  "keywords": [
-    "polyfill",
-    "object-fit",
-    "css"
-  ],
+  "keywords": ["polyfill", "object-fit", "css"],
   "license": "ISC",
   "ignore": [
     "**/.*",
+    "package.json",
+    "package-lock.json",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "tests",
+    "demo",
+    "src",
+    "gulpfile.js"
   ],
-  "version": "2.1.0"
+  "version": "2.2.0"
 }
