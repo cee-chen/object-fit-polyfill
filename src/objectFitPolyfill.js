@@ -263,7 +263,7 @@
 
       var mediaType = media[i].nodeName.toLowerCase();
 
-      if (mediaType === 'img' && !edgePartialSupport) {
+      if (mediaType === 'img') {
         if (media[i].complete) {
           objectFit(media[i]);
         } else {
