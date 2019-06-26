@@ -1,6 +1,6 @@
 {
   "name": "objectFitPolyfill",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "A Javascript polyfill for browsers that don't support the object-fit CSS property",
   "main": "dist/objectFitPolyfill.min.js",
   "files": [
@@ -22,6 +22,7 @@
     "url": "https://github.com/constancecchen/object-fit-polyfill/issues"
   },
   "scripts": {
+    "build": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
