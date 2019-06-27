@@ -181,9 +181,11 @@
     return true;
   };
 
-  if (document.readyState === 'loading') {  // Loading hasn't finished yet
+  if (document.readyState === 'loading') {
+    // Loading hasn't finished yet
     document.addEventListener('DOMContentLoaded', objectFitPolyfill);
-  } else {  // `DOMContentLoaded` has already fired
+  } else {
+    // `DOMContentLoaded` has already fired
     objectFitPolyfill();
   }
 
