@@ -289,7 +289,12 @@
     return true;
   };
 
-  document.addEventListener('DOMContentLoaded', objectFitPolyfill);
+  if (document.readyState === 'loading') {  // Loading hasn't finished yet
+    document.addEventListener('DOMContentLoaded', objectFitPolyfill);
+  } else {  // `DOMContentLoaded` has already fired
+    objectFitPolyfill();
+  }
+
   window.addEventListener('resize', objectFitPolyfill);
 
   window.objectFitPolyfill = objectFitPolyfill;
