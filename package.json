@@ -3,9 +3,11 @@
   "version": "2.3.3",
   "description": "A Javascript polyfill for browsers that don't support the object-fit CSS property",
   "main": "dist/objectFitPolyfill.min.js",
+  "types": "global.d.ts",
   "files": [
     "dist",
-    "src"
+    "src",
+    "global.d.ts"
   ],
   "keywords": [
     "object-fit",
