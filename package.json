@@ -1,6 +1,6 @@
 {
   "name": "objectFitPolyfill",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "A Javascript polyfill for browsers that don't support the object-fit CSS property",
   "main": "dist/objectFitPolyfill.min.js",
   "files": [
