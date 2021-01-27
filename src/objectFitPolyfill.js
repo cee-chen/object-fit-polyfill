@@ -2,7 +2,7 @@
  * objectFitPolyfill 2.3.1
  *
  * Made by Constance Chen
- * Released under the MIT license
+ * Released under the ISC license
  *
  * https://github.com/constancecchen/object-fit-polyfill
  *--------------------------------------*/
