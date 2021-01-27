@@ -124,6 +124,11 @@ bower install objectFitPolyfill
 npm install objectFitPolyfill
 ```
 
+```
+import 'objectFitPolyfill';
+require('objectFitPolyfill');
+```
+
 ## Advanced usage
 
 If you need to dynamically call the polyfill on the fly for any reason (for example, carousels or lazy-loaded images), you can do so quite easily:
