@@ -6,7 +6,7 @@ A polyfill for browsers that don't support the `object-fit` CSS property. Unsure
 
 - Lightweight - 3KB (2KB with the basic version)
 - Vanilla Javascript - works with or without jQuery
-- Supports IE 9+, Edge 16-18, iOS 7-, and Android 4.4-
+- Supports IE 9+, Edge 18-, iOS 7-, and Android 4.4-
 - Supports `object-position`
 - Works with `img`, `picture`, `srcset`, `video`, and `canvas`
 - Plug and play - just include the .js file and set data attributes on your elements.
