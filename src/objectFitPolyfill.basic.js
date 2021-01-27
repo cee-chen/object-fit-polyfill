@@ -1,5 +1,5 @@
 /*----------------------------------------
- * objectFitPolyfill 2.3.1
+ * objectFitPolyfill 2.3.2
  *
  * Basic, no-frills version -
  * Defaults to object-fit: cover and object-position: 50% 50%
