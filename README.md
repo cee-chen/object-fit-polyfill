@@ -112,23 +112,6 @@ If you're only interested in using the basic polyfill (which assumes `object-fit
 <script src="dist/objectFitPolyfill.basic.min.js"></script>
 ```
 
-## Installation via package managers
-
-Alternatively, if you prefer not to manually add Javascript files to your sites, you can use bower and npm like so:
-
-```
-bower install objectFitPolyfill
-```
-
-```
-npm install objectFitPolyfill
-```
-
-```
-import 'objectFitPolyfill';
-require('objectFitPolyfill');
-```
-
 ## Advanced usage
 
 If you need to dynamically call the polyfill on the fly for any reason (for example, carousels or lazy-loaded images), you can do so quite easily:
@@ -148,6 +131,28 @@ objectFitPolyfill(elements);
 // Rerun the polyfill with a jQuery selector
 objectFitPolyfill($('.baz'));
 ```
+
+## Installation via package managers
+
+If you prefer not to manually add Javascript files to your sites, you can use bower and npm like so:
+
+```sh
+npm install objectFitPolyfill
+# Or:
+bower install objectFitPolyfill
+```
+
+### Usage within a modern ES6/webpack JS project
+
+```js
+import 'objectFitPolyfill';
+// Or:
+require('objectFitPolyfill');
+
+window.objectFitPolyfill();
+```
+
+[Example React usage](https://github.com/constancecchen/object-fit-polyfill/issues/54#issuecomment-525904688).
 
 ## Requests?
 
