@@ -1,5 +1,5 @@
 /*----------------------------------------
- * objectFitPolyfill 2.3.0
+ * objectFitPolyfill 2.3.1
  *
  * Made by Constance Chen
  * Released under the MIT license
