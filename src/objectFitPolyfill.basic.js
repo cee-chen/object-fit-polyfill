@@ -17,7 +17,8 @@
   if (typeof window === 'undefined') return;
 
   // Workaround for Edge 16-18, which only implemented object-fit for <img> tags
-  var edgeVersion = parseInt(window.navigator.userAgent.match(/Edge\/(\d{2})\./), 10);
+  var edgeMatch = window.navigator.userAgent.match(/Edge\/(\d{2})\./);
+  var edgeVersion = edgeMatch ? parseInt(edgeMatch[1], 10) : null;
   var edgePartialSupport = edgeVersion
     ? edgeVersion >= 16 && edgeVersion <= 18
     : false;
