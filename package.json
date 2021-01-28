@@ -26,11 +26,12 @@
   },
   "scripts": {
     "build": "gulp",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest tests/"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-rename": "^1.4.0",
-    "gulp-uglify": "^3.0.2"
+    "gulp-uglify": "^3.0.2",
+    "jest": "^26.6.3"
   }
 }
