@@ -1,3 +1,8 @@
+**⚠️ This repo is now archived. ⚠️**<br/>
+**There isn't much modern browser usage for this polyfill since Edge moved to Chromium and IE 11's end of life. You're still welcome to use if (I'm so sorry) you still need to support older browsers for any reason, but no further updates will be made.**
+
+---
+
 # object-fit-polyfill
 
 A polyfill for browsers that don't support the `object-fit` CSS property. Unsure of what the `object-fit` does? Essentially `object-fit` is to `<img>` tags what `background-size` is to `background-image`. You can check out the [MDN page](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) for more details.
